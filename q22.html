@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Q22</title>
-    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            text-align: center;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px;
-        }
-        .gallery a img {
-            width: 200px;
-            height: auto;
-            border-radius: 4px;
-            border: 2px solid #fff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q22</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    a.back {
+      color: #ccc;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<h1>Q22</h1>
-<div class="gallery">
-  <a href="photos/q22/q22_1.jpg" data-lightbox="gallery"><img src="photos/q22/q22_1.jpg" alt=""></a>
-  <a href="photos/q22/q22_2.jpg" data-lightbox="gallery"><img src="photos/q22/q22_2.jpg" alt=""></a>
-  <a href="photos/q22/q22_3.jpg" data-lightbox="gallery"><img src="photos/q22/q22_3.jpg" alt=""></a>
-  <a href="photos/q22/q22_4.jpg" data-lightbox="gallery"><img src="photos/q22/q22_4.jpg" alt=""></a>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-<a href="index.html" style="color:#ccc; display:block; margin:20px;">← Powrót do strony głównej</a>
+  <h1>Q22</h1>
+  <div class="gallery" id="gallery">
+    <a href="photos/q22/q221.jpg" data-pswp-width="1600" data-pswp-height="1067"><img src="photos/q22/q221.jpg" alt="q22"></a>
+    <a href="photos/q22/q222.jpg" data-pswp-width="1600" data-pswp-height="1067"><img src="photos/q22/q222.jpg" alt="q22"></a>
+    <a href="photos/q22/q223.jpg" data-pswp-width="1600" data-pswp-height="1067"><img src="photos/q22/q223.jpg" alt="q22"></a>
+    <a href="photos/q22/q224.jpg" data-pswp-width="1600" data-pswp-height="1067"><img src="photos/q22/q224.jpg" alt="q22"></a>
+  </div>
+
+  <a class="back" href="index.html">← Powrót do strony głównej</a>
+
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe-lightbox.esm.min.js';
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery',
+      children: 'a',
+      pswpModule: () => import('https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.esm.min.js')
+    });
+    lightbox.init();
+  </script>
 </body>
 </html>
